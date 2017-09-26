@@ -12,7 +12,6 @@
 
       <table>
         <h1>Let's begin the game!</h1>
-        <p>{{count}}</p>
         <!-- Message holder for winner -->
         <tr>
           <td class="0" @click.once="comb"></td>
@@ -31,6 +30,8 @@
         </tr>
       </table>
 
+      <button type="button" name="button" @click="refresh">Restart</button>
+
     </div>
 
     <script>
@@ -40,49 +41,53 @@
           firstPlayer: 'O',
           secondPlayer: 'X',
           count: 0,
+          <!-- Board info for firstplayer -->
           board1: [0,0,0,0,0,0,0,0,0],
+          <!-- Board info for secondplayer -->
           board2: [0,0,0,0,0,0,0,0,0]
         },
-        computed:{
-
-        },
         methods:{
+          refresh: function(){
+              location.reload();
+          },
 
+          <!-- Combine two func -->
           comb: function(event){
-            this.check(event);
-            this.result();
+            this.update(event);
+            this.checkResult();
           },
+          <!-- First func -->
+          update: function(event){
 
-          check: function(event){
-
-          <!-- Player1 -->
-          if (this.count % 2 === 0){
-            event.target.innerText = this.firstPlayer;
-            this.count++;
-            this.board1[event.target.className] = 1;
-
-          <!-- Player2 -->
-            } else {
-              event.target.innerText = this.secondPlayer;
+            <!-- Player1 -->
+            if (this.count % 2 === 0){
+              event.target.innerText = this.firstPlayer;
               this.count++;
-              this.board2[event.target.className] = 1;
-            }
+              this.board1[event.target.className] = 1;
+
+            <!-- Player2 -->
+              } else {
+                event.target.innerText = this.secondPlayer;
+                this.count++;
+                this.board2[event.target.className] = 1;
+              }
           },
+          <!-- Second func -->
+          checkResult: function(){
 
-          result: function(){
-            var p1 = this.board1;
-            var p2 = this.board2;
+            let p1 = this.board1;
+            let p2 = this.board2;
 
+            <!-- if firstPlayer won -->
             if(p1[0] + p1[1] + p1[2] === 3 || p1[3] + p1[4] + p1[5] === 3 || p1[6] + p1[7] + p1[8] === 3 || p1[0] + p1[3] + p1[6] === 3 || p1[1] + p1[4] + p1[7] === 3 || p1[3] + p1[5] + p1[8] === 3 || p1[0] + p1[4] + p1[8] === 3 || p1[2] + p1[4] + p1[6] === 3){
-              return alert('P1 won!');
+               alert('Player1 won!');
+
+            <!-- if secondPlayer won -->
             } else if (p2[0] + p2[1] + p2[2] === 3 || p2[3] + p2[4] + p2[5] === 3 || p2[6] + p2[7] + p2[8] === 3 || p2[0] + p2[3] + p2[6] === 3 || p2[1] + p2[4] + p2[7] === 3 || p2[3] + p2[5] + p2[8] === 3 || p2[0] + p2[4] + p2[8] === 3 || p2[2] + p2[4] + p2[6] === 3
             ){
-              return alert('P2 won!');
+               alert('Player2 won!');
             }
           }
-
-
-
       } <!-- End of methods-->
       });
     </script>

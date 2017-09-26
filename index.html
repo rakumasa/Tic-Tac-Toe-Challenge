@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VueJS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+
+      <table>
+        <tr>
+          <td class="0" @click.once="check"></td>
+          <td class="1" @click.once="check"></td>
+          <td class="2" @click.once="check"></td>
+        </tr>
+        <tr>
+          <td class="3" @click.once="check"></td>
+          <td class="4" @click.once="check"></td>
+          <td class="5" @click.once="check"></td>
+        </tr>
+        <tr>
+          <td class="6" @click.once="check"></td>
+          <td class="7" @click.once="check"></td>
+          <td class="8" @click.once="check"></td>
+        </tr>
+      </table>
+
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data:{
+          firstPlayer: 'O',
+          secondPlayer: 'X',
+          count: 0,
+        },
+        methods:{
+          check : function(event){
+
+          <!-- Player1 -->
+          if (this.count % 2 === 0){
+            event.target.innerText = this.firstPlayer;
+            this.count++;
+          <!-- Player2 -->
+            } else {
+              event.target.innerText = this.secondPlayer;
+              this.count++;
+            }
+
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

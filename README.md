@@ -2,6 +2,10 @@
 
 Simple Tic Tac Toe game using VueJS/HTML/CSS.
 
+** How to start the game: **
+
+Download a file from github and open "index.html" by browser.
+
 You can see a preview of this app in action in the following video preview:
 
 https://youtu.be/XRGU5-aucao

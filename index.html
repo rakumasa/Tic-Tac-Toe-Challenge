@@ -3,34 +3,32 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>VueJS</title>
+    <title>Tic Tac Toe Challenge</title>
     <link rel="stylesheet" href="style.css">
     <script src="vue.js"></script>
   </head>
   <body>
     <div id="app">
-      <h1>Tic Tac Toe</h1>
-      <table>
-        <h1>Tic Tac Toe</h1>
-        <!-- Message holder for winner -->
-        <tr>
-          <td class="0" @click.once="comb"></td>
-          <td class="1" @click.once="comb"></td>
-          <td class="2" @click.once="comb"></td>
-        </tr>
-        <tr>
-          <td class="3" @click.once="comb"></td>
-          <td class="4" @click.once="comb"></td>
-          <td class="5" @click.once="comb"></td>
-        </tr>
-        <tr>
-          <td class="6" @click.once="comb"></td>
-          <td class="7" @click.once="comb"></td>
-          <td class="8" @click.once="comb"></td>
-        </tr>
-      </table>
 
-      <button type="button" name="button" @click="refresh">Restart</button>
+      <div>
+        <table>
+          <tr>
+            <td class="0" @click.once="comb"></td>
+            <td class="1" @click.once="comb"></td>
+            <td class="2" @click.once="comb"></td>
+          </tr>
+          <tr>
+            <td class="3" @click.once="comb"></td>
+            <td class="4" @click.once="comb"></td>
+            <td class="5" @click.once="comb"></td>
+          </tr>
+          <tr>
+            <td class="6" @click.once="comb"></td>
+            <td class="7" @click.once="comb"></td>
+            <td class="8" @click.once="comb"></td>
+          </tr>
+        </table>
+      </div>
 
     </div>
 
@@ -38,8 +36,8 @@
       new Vue({
         el: '#app',
         data:{
-          firstPlayer: 'O',
-          secondPlayer: 'X',
+          firstPlayer: 'X',
+          secondPlayer: 'O',
           count: 0,
           <!-- Board info for firstplayer -->
           board1: [0,0,0,0,0,0,0,0,0],
@@ -81,11 +79,13 @@
             <!-- if firstPlayer won -->
             if(p1[0] + p1[1] + p1[2] === 3 || p1[3] + p1[4] + p1[5] === 3 || p1[6] + p1[7] + p1[8] === 3 || p1[0] + p1[3] + p1[6] === 3 || p1[1] + p1[4] + p1[7] === 3 || p1[3] + p1[5] + p1[8] === 3 || p1[0] + p1[4] + p1[8] === 3 || p1[2] + p1[4] + p1[6] === 3){
                alert('Player1 won!');
+               this.refresh();
 
             <!-- if secondPlayer won -->
             } else if (p2[0] + p2[1] + p2[2] === 3 || p2[3] + p2[4] + p2[5] === 3 || p2[6] + p2[7] + p2[8] === 3 || p2[0] + p2[3] + p2[6] === 3 || p2[1] + p2[4] + p2[7] === 3 || p2[3] + p2[5] + p2[8] === 3 || p2[0] + p2[4] + p2[8] === 3 || p2[2] + p2[4] + p2[6] === 3
             ){
                alert('Player2 won!');
+               this.refresh();
             }
           }
       } <!-- End of methods-->

@@ -1,5 +1,17 @@
 # Tic-Tac-Toe-Challenge
 
+Simple Tic Tac Toe game using VueJS/HTML/CSS.
+
+You can see a preview of this app in action in the following video preview:
+
+https://youtu.be/XRGU5-aucao
+
+[![Watch the video](images/TicTacToe.png)](https://youtu.be/XRGU5-aucao)
+
+
+
+**About the project**
+
 - Design a tic-tac-toe board using HTML, CSS, and VueJS web components.
 
 - As a user, I should be able to click an empty space on the board that turns into an 'X'
@@ -12,3 +24,10 @@
 
 Resources:
 https://vuejs.org/v2/guide/
+
+
+**Future enhancements**
+- Color "X" with blue and "O" with red
+- Show a message who is in turn
+- Add reset/restart button
+- Add score board
